@@ -219,9 +219,9 @@ jobs:
         with:
           path: |
             /tmp/.buildx-cache
-          key: ${{ runner.os }}-buildx-ubuntututorial-${{ github.sha }}
+          key: ${{ runner.os }}-buildx-tutorial-${{ github.sha }}
           restore-keys: |
-            ${{ runner.os }}-buildx-ubuntututorial-
+            ${{ runner.os }}-buildx-tutorial-
       # Login against a Docker registry except on PR
       # https://github.com/docker/login-action
       - name: Log into registry ${{ env.REGISTRY }}
@@ -263,9 +263,8 @@ jobs:
           platforms: linux/amd64, linux/arm64
           push: ${{ github.event_name != 'pull_request' }}
           tags: |
-            ${{ steps.meta.outputs.tags }}
-            ${{ env.IMAGE_NAME }}:ubuntu22.04_tutorial
-            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:ubuntu22.04_tutorial
+            ${{ env.IMAGE_NAME }}:tutorial
+            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:tutorial
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=local,src=/tmp/.buildx-cache-tutorial
           cache-to: type=local,dest=/tmp/.buildx-cache-tutorial-new

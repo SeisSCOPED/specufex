@@ -2,13 +2,17 @@
 
 This repository contains the code necessary to build the SCOPED containers for Specufex. For more information on using Specufex, see the [documentation](https://specufex.github.io/specufex) and the [code](https://github.com/specufex/specufex).
 
-Two containers are built by this repository:
+Three containers are built by this repository:
 
 - `ghcr.io/seisscoped/specufex:latest`
 
 - `ghcr.io/seisscoped/specufex:tutorial`
 
-These are the same except that the `tutorial` container contains code and data to fit a subset of the data used for the original Specufex paper, [Holtzman, et al., Science Advances (2018)](https://advances.sciencemag.org/content/4/5/eaao2929)
+- `ghcr.io/seisscoped/specufex:ubuntu22.04`
+
+The first two images are the same, except that the Jupyterlab instance in the `specufx:tutorial` image opens in the `tutorials` directory. This directory contains a notebook to work on some data from The Geysers geothermal field in California (see [Holtzman, et al., Science Advances (2018)](https://advances.sciencemag.org/content/4/5/eaao2929).) Both of these are currently built for Intel and ARM 64 platforms.
+
+The `specufex:ubuntu22.04` image imcludes MPI support and is only built for AMD64 platforms. Specufex does not currently use MPI however.
 
 The containers are set up to run a Jupyter Lab server with the appropriate environment and dependencies for Specufex. To run the tutorial, first pull it from the registry and then start it up. Using the terminal:
 
