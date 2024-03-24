@@ -93,6 +93,7 @@ jobs:
           platforms: linux/amd64,linux/arm64
           push: ${{ github.event_name != 'pull_request' }}
           tags: |
+            ${{ env.IMAGE_NAME }}:latest
             ${{ env.IMAGE_NAME }}:ubuntu22.04_jupyterlab
             ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:ubuntu22.04_jupyterlab
           labels: ${{ steps.meta.outputs.labels }}
