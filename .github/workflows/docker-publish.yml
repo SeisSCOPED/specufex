@@ -19,7 +19,7 @@ env:
   # Use docker.io for Docker Hub if empty
   REGISTRY: ghcr.io
   # github.repository as <account>/<repo>
-  IMAGE_NAME: seisscoped/container-base
+  IMAGE_NAME: seisscoped/specufex
 
 
 jobs:
@@ -91,7 +91,7 @@ jobs:
         with:
           context: .
           file: Dockerfile
-          platforms: linux/amd64, linux/arm64
+          platforms: linux/amd64
           push: ${{ github.event_name != 'pull_request' }}
           tags: |
             ${{ env.IMAGE_NAME }}:ubuntu22.04
@@ -174,7 +174,7 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: .
-          file: Dockerfile_jupyter
+          file: Dockerfile_ubuntu_jupyter
           platforms: linux/amd64,linux/arm64
           push: ${{ github.event_name != 'pull_request' }}
           tags: |
