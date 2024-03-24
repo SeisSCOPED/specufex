@@ -174,7 +174,7 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: .
-          file: Dockerfile_ubuntu_jupyter
+          file: Dockerfile_ubuntu_jupyterlab
           platforms: linux/amd64,linux/arm64
           push: ${{ github.event_name != 'pull_request' }}
           tags: |
