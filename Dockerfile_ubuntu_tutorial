@@ -13,6 +13,7 @@ RUN useradd --gid 100 --uid "${NB_UID}" --no-create-home --home-dir "${HOME}" "$
 # change permissions of user home directory to allow jovyan from Jupyterhub
 # to write. Necessary to run from Jupyterhub
 USER root
+RUN apt install pkg-config
 RUN chown -R "${NB_USER}":100 "${HOME}"
 
 USER ${NB_USER}
