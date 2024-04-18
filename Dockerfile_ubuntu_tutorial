@@ -24,7 +24,7 @@ RUN git clone https://github.com/specufex/specufex.git \
     && python -m pip install . \
     && docker-clean
 
-# RUN chmod -R 774 "${HOME}" && chmod -R 774 "${HOME}"/.local
+RUN chmod -R 774 "${HOME}" && chmod -R 774 "${HOME}"/.local
 
 WORKDIR "${HOME}/specufex/tutorials"
 
